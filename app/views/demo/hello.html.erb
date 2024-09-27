@@ -1,0 +1,19 @@
+<h1>Demo#Hello </h1>
+<p>HELLO html </p>
+<ol>
+  <% @listOfNames.each do |name| %>
+    <li> <%= name %> </li>
+  <% end %>
+</ol>
+<a href="/demo/hello">Hello Page 1</a> <br>
+<%= link_to('Go to index', {:action => 'index'}) %>
+
+<br>
+
+ID: <%= params[:id] %>
+ID: <%= @id %> <br>
+Next Page: <%= @page + 1 %>
+<br>
+
+<hr>
+<%= params.inspect %>

@@ -1,0 +1,250 @@
+Create rails project:
+    rails new project_name -d mysql 
+    bundle install 
+
+Access Project in web
+    rails server or rails s
+
+
+Create controller 
+    rails generate controller controller_name 
+
+
+Rendering Template in controller
+    def index
+        render('index')
+    end
+
+
+Redirecting Action 
+    def redirect_page
+        redirect_to(:controller => 'demo', :action => 'index')
+    end
+
+
+Embedding ruby in an ERB Template
+    <%  %> - executes ruby codes
+    <%=  %> - executes and output the ruby code
+
+
+Instance Variables:
+    - used to give templates access to data gathered in controller
+    example: @array = [1,2,3,4,5]
+
+Links:
+    format: <%= link_to(text, target) %>
+    example: <%= link_to('Hello page 2', {:action => 'hello'}) %>
+
+    URL PARAMETERS 
+        <%= link_to('Hello w params ', {:action =>'hello',:page => 5, :id => 20}) %>
+
+        debugging of params: 
+        <%= params.inspect %>
+
+Routes:
+    Root Route example: root "demo#/index"
+
+
+IMPORTANT MYSQL DATABASE COMMANDS
+SHOW DATABASES; - show all databases
+CREATE DATABASE db_name; - create database
+USE db_name; - to use specific database
+DROP DATABASE db_name; - delete database
+
+Access MYSQL: 
+    mysql -u root -p 
+
+Create connection to mysql in rails: 
+    rake db:schema:dump
+
+DB MIGRATIONS:
+    rails generate migration DoNothingYet
+        use camelCase for naming convention
+
+Create Model:
+    rails generate model User
+
+Creating column in migration file:
+    def up
+        create_table :users do |t|
+            t.string "first_name", :limit => 25
+            t.string "last_name", :limit => 50
+            t.string "email", :default => "", :null = false
+            t.string "password", :limit=>40
+            
+            t.timestamps 
+        end
+    end
+
+db migrate:
+    rake db:migrate 
+    bundle exec rake db:migrate (use this if first one is not working)
+
+reverting the migration:
+    rake db:migrate VERSION=0
+
+Check the status of all migration files:
+    rake db:migrate:status
+
+Migrate Specific migration files
+    rake db:migrate VERSION=20240926055536 
+
+Migration Advice
+    comment out executed code lines to get back on track
+        Write SQL commands as last resort
+
+    Keep migrations small and concise
+
+    All foreign key should have add_index() in the migrations
+
+ActiveRecord
+    Design pattern for relational database
+
+ActiveRecord Examples:
+
+    user = User.new
+    user.first_name = "kevin"
+    user.save > SQL INSERT 
+
+    user.last_name = "Skoglund"
+    user.save > SQL UPDATE 
+
+    user.delete > SQL DELETE 
+
+ActiveRelation or ARel 
+    Simplifies the generation of complex database queries
+    Small queries are chainable 
+    Complex joins and aggregations use efficient SQL 
+
+
+Ways to configure different table db_name
+
+1. inside model: 
+    self.table_name = "admin_users"
+
+2. Rename the Model name class and the file of model 
+    example: admin_user | naming convention should be singular and have underscore. 
+
+Rails console 
+    rails c or rails console 
+
+    create records 
+        subject = Subject.create(:name => "Second Subject", :position => 2)
+    
+    update records  
+        First Method
+            subject = Subject.find(1)
+            subject.name = "Initial Subject" 
+            subject.save
+
+        Second Method
+            subject = Subject.find(2)
+            subject.update_attribute(:name => "Next Subject", :visible => true)
+
+    Delete records
+        subject = Subject.find(3)
+        subject.destroy
+    
+    Finding records 
+        primary key finder > return error if it can't find the record 
+            Subject.find(2)
+        
+        Dynamic finder > return nil if it can't find the record 
+            Subject.find_by_id(2)
+            Subject.find_by_name("record name")
+        
+        Find all record
+            Subject.all
+        
+        Find first or last
+            Subject.first 
+            Subject.last
+
+    Query Methods Conditions
+        where  >   returns an ActiveRelation object 
+            Subject.where(:visible => true)
+        where with chain 
+            Subject.where(:visible => true ).order("Position ASC")
+
+        array expression type: 
+            Subject.where(["visible = ?", true])
+
+        hash expression types:
+           Subject.where(:visible => true)
+    
+    Order Methods: 
+        order (sql_fragment)
+            table_name.column_name ASC/DESC 
+
+        limit (integer) 
+
+
+        offset (integer)
+
+
+    example when chained together
+        Subject.order("position ASC").limit(20).offset(40)
+
+Named Scopes
+    Defined & be called ActiveRelation Methods using ActiveRelation query Methods
+    Can Accept parameters and requires lambda syntax
+    
+    Example
+        scope :active, lambda {where(:active => true)}
+
+    Example w/ parameters   
+        scope :with_content_type, lambda {|ctype|
+            where(:content_type => ctype)
+        }
+
+    Example with chaining Scopes
+        Article.recent.visible.newest_first
+
+Relationship types
+    
+    One-to-One 
+        Classroom has_one :teacher 
+        Teacher belongs_to :classroom 
+
+    One-to-Many 
+        More commonly used 
+        Plural relationships names
+            Teacher has_many :courses
+            Course belongs_to :teacher 
+
+    Many-to-Many
+        Course has_and_belongs_to_many :students
+        Students has_and_belongs_to_many :courses 
+    
+ Class with "belongs_to" should have the foreign key 
+   
+has_many Methods
+    subject.pages 
+    subject.pages << page 
+    subject.pages = [page, page, page]
+
+    #remove page in the array 
+    subject.pages.delete(page)
+
+    #delete from the database 
+    subject.pages.destroy(page)
+
+    #remove all pages
+    subject.pages.clear 
+
+    #check if empty
+    subject.pages.empty?
+
+Many-to-Many Association: simple 
+    used when an object has many objects which belong to it but not exclusively
+
+    requires a join table 
+        2 foreign keys index both keys together
+        No primary key column (:id => false )
+    
+    Join table naming
+        first_table + _ + second_table 
+        both table names are plural 
+        Alphabetical order 
+        Default name, can be configured 
+        
