@@ -247,4 +247,10 @@ Many-to-Many Association: simple
         both table names are plural 
         Alphabetical order 
         Default name, can be configured 
-        
+
+Many-to-Many Association:Rich
+    still uses a join table, with two indexed FK
+    requires a PK column 
+    Join table has its own model 
+    No table name convention to follow 
+    Names ending in "-ments" or "-ships" work well 
