@@ -1,5 +1,11 @@
-<%= link_to("<< Back to list", {:action => 'index'}, :class => 'back-link') %>
 
+<% if !flash[:notice].blank? %>
+    <div class="notice">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<%= link_to("<< Back to list", {:action => 'index'}, :class => 'back-link') %>
 <div class="subjects show">
     <h2>Show Subject</h2>
     <table summary="Subject detail view">

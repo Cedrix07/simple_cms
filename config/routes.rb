@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'pages/index'
+
+  get 'pages/show'
+
+  get 'pages/new'
+
+  get 'pages/create'
+
+  get 'pages/edit'
+
+  get 'pages/update'
+
+  get 'pages/delete'
+
+  get 'pages/destroy'
+
   # get 'subjects/index'
   # get 'subjects/show'
   # get 'subjects/new'

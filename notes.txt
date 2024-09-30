@@ -291,3 +291,6 @@ FLASH HASH
     Clear old messages after every request
     Use for messages needed after a redirect
     
+    flash[:notice] = "The subject was created successfully!"
+    flash[:error] = "You don't have enough access privileges"
+    
