@@ -254,3 +254,28 @@ Many-to-Many Association:Rich
     Join table has its own model 
     No table name convention to follow 
     Names ending in "-ments" or "-ships" work well 
+
+
+FORM BASICS
+
+form_for example:
+ <%= form_for(:subject, :url => {:action => 'create'}) do |f| %>
+    <table summary="Subject form fields">
+        <tr>
+            <th>Name</th>
+            <td><%= f.text_field(:name)%></td>
+        </tr>
+        <tr>
+            <th>Position</th>
+            <td><%= f.text_field(:position) %></td>
+        </tr>
+        <tr>
+            <th>Visible</th>
+            <td><%= f.text_field(:visible) %></td>
+        </tr>
+    </table>
+    <div class="form-buttons">
+        <%= submit_tag("Create Subject") %>
+    </div>
+<% end %>
+

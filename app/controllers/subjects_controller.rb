@@ -12,6 +12,8 @@ class SubjectsController < ApplicationController
   end
 
   def new
+    @subject = Subject.new({:name => "Default"})
+
   end
 
   def edit
