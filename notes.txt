@@ -279,3 +279,15 @@ form_for example:
     </div>
 <% end %>
 
+MASS Assignment
+    passing a hash of values to an object to be assigned as attributes
+
+Strong parameters
+    params.permit(:first_name, :last_name)
+    params.require(:subject)
+
+FLASH HASH
+    Stores a message in session data
+    Clear old messages after every request
+    Use for messages needed after a redirect
+    

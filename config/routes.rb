@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   # get 'subjects/new'
   # get 'subjects/edit'
   # get 'subjects/delete'
-  resources :subjects
+  # resources :subjects
 
+  match ':controller(/:action(/:id))', :via => [:get, :post]
+  
   # get 'demo/index'
 
   get 'demo/index'
