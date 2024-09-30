@@ -14,5 +14,9 @@ module SimpleCms
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    # Manual set of timezone
+    config.time_zone = 'Asia/Taipei'
+    config.active_record.default_timezone = :utc
   end
 end
