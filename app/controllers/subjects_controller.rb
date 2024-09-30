@@ -21,12 +21,11 @@ class SubjectsController < ApplicationController
 
     #save the object
    if @subject.save
-    flash[:notice] = "Subject created successfully!"
-    redirect_to(:action => 'index')
+      flash[:notice] = "Subject created successfully!"
+      redirect_to(:action => 'index')
    else
-    render('new')
+      render('new')
    end
-    
   end
   
   def edit
