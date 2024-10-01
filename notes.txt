@@ -385,13 +385,21 @@ DELETE
 TEXT HELPERS
     word_wrap
         <%= word_wrap(text, :line_width => 10) %>
+        <%= number_to_currency(500, :precision => 0, :unit => "php", :format => "%n %u")%>
     simple_formats
     truncate
         <%= truncate(text, :length => 10, :omission => "...")%>
     excerpt
-        
+
     highlight 
     pluralize
     cycle
 
-
+NUMBER HELPERS
+    number_to_currency
+        <%= number_to_currency(500)%>
+    number_to_percentage 
+    number_with_precision / number_with_rounded
+    number_to_human
+    number_to_human_size
+    number_to_phone
