@@ -7,18 +7,20 @@
 <div class="pages index">
     <h2>Pages</h2>
     <%= link_to("Add new Page", {:action => 'new'}, :class => 'action new') %>
+
     <table class="listing" summary="Page list">
         <tr class="header">
-            <th>Position</th>
-            <th>Pages</th>
+            <th>subject ID</th>
+            <th>Page</th>
             <th>Permalink</th>
             <th>Visible</th>
+            <%# <th>Sections</th> %>
             <th>Actions</th>
         </tr>
 
         <% @pages.each do |page| %>
         <tr>
-            <td><%= page.position %></td>
+            <td><%= page.subject_id %></td>
             <td><%= page.name %></td>
               <td><%= page.permalink %></td>
             <td class="center">

@@ -1,2 +1,12 @@
-<h1>Pages#delete</h1>
-<p>Find me in app/views/pages/delete.html.erb</p>
+<%= link_to("<< Back to list", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="pages edit">
+    <h2>Delete Page</h2>
+
+    <%= form_for(:subject, :url => {:action => 'destroy', :id => @page.id}) do |f| %>
+        <p>Are you sure you want to delete <strong><%= @page.name %></strong> ? </p>
+        <div class="form-buttons">
+            <%= submit_tag("Delete Page") %>
+        </div>
+    <% end %>
+</div>
