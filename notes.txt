@@ -383,12 +383,15 @@ DELETE
   <% end %>
 
 TEXT HELPERS
-word_wrap
-simple_formats
-truncate
-excerpt
-highlight 
-pluralize
-cycle
+    word_wrap
+        <%= word_wrap(text, :line_width => 10) %>
+    simple_formats
+    truncate
+        <%= truncate(text, :length => 10, :omission => "...")%>
+    excerpt
+        
+    highlight 
+    pluralize
+    cycle
 
 
