@@ -17,11 +17,12 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
     if @page.save
-        flash[:notice] = "Page created successfully"
-        redirect_to(:action => 'index')
+      flash[:notice] = "Page created successfully!"
+      redirect_to(:action => 'index')
     else
       render('new')
     end
+    
   end
 
   def edit

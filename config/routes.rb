@@ -7,17 +7,17 @@ Rails.application.routes.draw do
   # get 'subjects/edit'
   # get 'subjects/delete'
   
-  resources :subjects do 
-    member do 
-      get :delete 
-    end
-  end
+  # resources :subjects do 
+  #   member do 
+  #     get :delete 
+  #   end
+  # end
 
-  resources :pages do
-    member do 
-      get :delete
-    end 
-  end
+  # resources :pages do
+  #   member do 
+  #     get :delete
+  #   end 
+  # end
 
   resources :sections do
     member do
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # match ':controller(/:action(/:id))', :via => [:get, :post]
+  match ':controller(/:action(/:id))', :via => [:get, :post]
 
   # get 'demo/index'
 
