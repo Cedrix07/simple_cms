@@ -1,7 +1,7 @@
 class SubjectsController < ApplicationController
 
-  layout false
-
+  layout "admin"
+  
   def index
     @subjects = Subject.sorted
     # render(:template => 'subjects/index')

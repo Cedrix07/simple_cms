@@ -1,9 +1,4 @@
 
-<% if !flash[:notice].blank? %>
-    <div class="notice">
-        <%= flash[:notice] %>
-    </div>
-<% end %>
 <div class="subjects index">
     <h2>Sections</h2>
     <%= link_to("Add new Section", {:action => 'new'}, :class => 'action new') %>

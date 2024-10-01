@@ -381,3 +381,14 @@ DELETE
       <%= f.submit "Delete Section" %>
     </div>
   <% end %>
+
+TEXT HELPERS
+word_wrap
+simple_formats
+truncate
+excerpt
+highlight 
+pluralize
+cycle
+
+

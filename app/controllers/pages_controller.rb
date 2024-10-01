@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  layout false
+  layout "admin"
 
   def index
     @pages = Page.sorted
@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new({:name => "Default"})
+    @page = Page.new
   end
 
   def create
@@ -45,7 +45,7 @@ class PagesController < ApplicationController
 
   def destroy
     page = Page.find(params[:id]).destroy
-    flash[:notice] = "#{page} Deleted Successfully"
+    flash[:notice] = "#{page.name} Deleted Successfully"
     redirect_to(:action => 'index')
   end
 
