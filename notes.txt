@@ -441,4 +441,25 @@ ASSET PIPELINE
     enabled by default
     concatenates css and js
     compress / minifies css and js
-    
+
+Rails stylesheet link tag 
+<%= stylesheet_link_tag('application') %>
+
+Rails JS Helper tags
+   <%= javascript_include_tag('application')%>
+   
+   <%= javascript_tag("alert("hello!")")%>
+
+   <%= javascript_tag do %>
+    alert("Hello!");
+   <% end %>
+
+IMAGES
+    LOCATION
+        with asset pipeline: /app/assets/images
+        w/ asset pipeline: /public/images
+        user-uploaded img: /public/images
+
+    RAILS IMAGE HELPER
+        <%= image_tag('logo.png') %>
+           <%= image_tag('logo.png', :size => 95, :alt => 'logo') %>

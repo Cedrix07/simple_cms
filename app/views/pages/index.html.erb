@@ -1,7 +1,7 @@
 
 
 <div class="pages index">
-    <h2><%= pluralize(@pages.size, 'Pages' )%> Found </h2>
+    <h2>Pages </h2>
     <%= link_to("Add new Page", {:action => 'new'}, :class => 'action new') %>
 
     <table class="listing" summary="Page list">
@@ -32,6 +32,8 @@
             </td>
         </tr>
         <% end %>
-
     </table>
+    <div>
+        <p>Total Page Found: <strong><%= pluralize(@pages.size, 'Pages' )%> </strong></p>
+    </div>
 </div>
