@@ -3,6 +3,11 @@
 <%= link_to('Go to hello page', {:action => 'hello'}) %>
 <br>
 <%= link_to('Hello w params ', {:action =>'hello', :page => 5, :id => 20 }) %>
+
+
+
 <br>
 <% name = 'cedrix'%>
 <%= link_to('Click me', '#', onclick: "greet('#{name}');")%>
+
+<hr>

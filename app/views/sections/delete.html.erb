@@ -4,7 +4,7 @@
     <h2>Delete Subject</h2>
 
     <%= form_with model: @section, url: section_path(@section), method: :delete, local: true do |f| %>
-    <p>Are you sure you want to delete <strong><%= @section.name %></strong>?</p>
+    <p class="delete-p">Are you sure you want to delete <strong><%= @section.name %></strong>?</p>
 
     <div class="form-buttons">
       <%= f.submit "Delete Section" %>

@@ -3,11 +3,21 @@
 <head>
     <title>Simple CMS Admin </title>
     <%= stylesheet_link_tag('application', :media => 'all') %>
-    <%= javascript_include_tag('')%>
 </head>
 <body>
     <div id="header">
         <h1>Simple CMS Admin</h1>
+        <ul class ="nav">
+            <li class ="nav-items">
+                <%= link_to 'Subject', {:controller => 'subjects', :action => 'index'}, class:'nav-links' %>
+            </li>
+            <li class ="nav-items">
+                <%= link_to 'Page', {:controller => 'pages', :action => 'index'},  class:'nav-links' %>
+            </li>
+            <li class ="nav-items">
+                <%= link_to 'Section', {:controller => 'sections', :action => 'index'}, class:'nav-links'%>
+            </li>
+        </ul>
     </div>
     <div id="main">
         <% if !flash[:notice].blank? %>

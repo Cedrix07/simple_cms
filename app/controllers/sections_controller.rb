@@ -11,11 +11,12 @@ class SectionsController < ApplicationController
 
   def new
     @section = Section.new
-   
+    @section_count = Section.count + 1
   end
 
   def create
     @section = Section.new(section_params)
+    @section_count = Section.count + 1
     if @section.save
       flash[:notice] = "Section created successfully"
       redirect_to(:action => 'index')
@@ -26,6 +27,7 @@ class SectionsController < ApplicationController
   
   def edit
     @section = Section.find(params[:id])
+    @section_count = Section.count
   end
 
   def update 
@@ -34,6 +36,7 @@ class SectionsController < ApplicationController
       flash[:notice] = "Section Updated successfully!"
       redirect_to action:'index'
     else
+      @section_count = Section.count
       render('edit')
     end
   end
