@@ -382,6 +382,9 @@ DELETE
     </div>
   <% end %>
 
+HELPERS
+    used to avoid repeating of code for text, number, datetime helpers, and etc.
+
 TEXT HELPERS
     word_wrap
         <%= word_wrap(text, :line_width => 10) %>
@@ -389,6 +392,7 @@ TEXT HELPERS
     simple_formats
     truncate
         <%= truncate(text, :length => 10, :omission => "...")%>
+        <%= trucate(text, length: 10, omission: "...") %> 
     excerpt
 
     highlight 
@@ -399,7 +403,42 @@ NUMBER HELPERS
     number_to_currency
         <%= number_to_currency(500)%>
     number_to_percentage 
+
     number_with_precision / number_with_rounded
     number_to_human
     number_to_human_size
     number_to_phone
+
+DATE & TIME HELPERS
+    Time.now or 30.days.from_now
+    30.minutes
+
+Relative DateTime Calculations 
+
+Readable DATETIME format
+Time.now.strftime("%B %d, %Y %H:%M")
+
+CUSTOM HELPERS 
+    Ruby modules 
+    created when generating a controller 
+    available to view templates
+    put custom helper to application_helper file if you want it to use with different controllers. 
+
+SANITIZE HELPERS    
+    use to sanitize any inputs from the user
+    helps to prevent XSS or messed up layout style. 
+
+    key methods:
+    html_escape(), h()
+    raw()
+    html_safe
+    html_safe?
+    strip_links() - remove html links from text
+    strip_tags()
+
+ASSET PIPELINE
+    helps manage css, js, and images
+    enabled by default
+    concatenates css and js
+    compress / minifies css and js
+    

@@ -1,7 +1,7 @@
 
 
 <div class="pages index">
-    <h2>Pages</h2>
+    <h2><%= pluralize(@pages.size, 'Pages' )%> Found </h2>
     <%= link_to("Add new Page", {:action => 'new'}, :class => 'action new') %>
 
     <table class="listing" summary="Page list">
@@ -18,9 +18,9 @@
         <tr>
             <td><%= page.subject_id %></td>
             <td><%= page.name %></td>
-              <td><%= page.permalink %></td>
+              <td><%= truncate(page.permalink, length: 5 , omission: '...')  %></td>
             <td class="center">
-                <%=  page.visible ? 'Yes' : 'No' %>
+                <%=  status_tag(page.visible) %>
             </td>
             <%# <td class="center"> %>
                 <%# <%= page.section.size %> 

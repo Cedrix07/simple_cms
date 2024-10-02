@@ -6,3 +6,9 @@
 <%= truncate(text, :length => 10, :omission => "...")%>
 
 <p>currency: <span><%= number_to_currency(500, :precision => 0, :unit => "php", :format => "%n %u")%></span> </p>
+
+<hr>
+
+<p>currency: <span><%= number_to_currency(500, precision: 0, unit: "$", format: "%u %n") %></span> </p> 
+
+<%= Time.now.strftime("%b %d, %Y") %> 

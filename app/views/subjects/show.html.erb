@@ -20,12 +20,12 @@
 
         <tr>
             <th>Created</th>
-            <td><%= @subject.created_at %></td>
+            <td><%= format_date(@subject.created_at) %></td>
         </tr>
             
         <tr>
             <th>Updated</th>
-            <td><%= @subject.updated_at  %></td>
+            <td><%= format_date(@subject.updated_at)  %></td>
         </tr>
       
 
