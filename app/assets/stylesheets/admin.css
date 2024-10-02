@@ -68,3 +68,10 @@ span.status.false { background: red; color: red; }
 .delete-p{
   text-align: center;
 }
+
+.submit-btn{
+  cursor: pointer;
+  padding: 0.4em;
+  border: 0;
+  background-color: #94B26F;
+}

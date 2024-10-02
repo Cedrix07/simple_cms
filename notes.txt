@@ -464,5 +464,9 @@ IMAGES
         <%= image_tag('logo.png') %>
            <%= image_tag('logo.png', :size => 95, :alt => 'logo') %>
 
-FORMS
+PREVENT CSRF
+    require user authentication
+    regularly log out inactive users
+    GET request should be read only  
+    POST Request should be only respond to POSTS request
     
