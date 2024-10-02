@@ -13,4 +13,9 @@ module ApplicationHelper
   def format_date(date)
     date.to_s(:long)
   end
+
+  def error_messages_for(object)
+    # render(:partial => 'application/error_messages', :locals => { :object => object })
+    render(partial: 'application/error_messages', locals: { object: object })
+  end
 end

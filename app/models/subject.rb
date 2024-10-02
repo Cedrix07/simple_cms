@@ -1,8 +1,12 @@
 class Subject < ApplicationRecord
 
+  
+
   #relation
   has_many:pages
 
+  #validations 
+  validates_presence_of :name
 
   #Named scopes
   scope :visible, lambda { where( :visible => true ) } 

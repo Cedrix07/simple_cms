@@ -1,3 +1,5 @@
+
+<%= error_messages_for(@section) %>
 <table summary="Sections form fields">
     <tr>
       <th><%= f.label(:page_id) %></th>
@@ -27,4 +29,4 @@
       <th><%=  f.label(:content)%></th>
       <td><%= f.text_area :content, :placeholder => "Enter the content...", :size => "24x5" %></td>
     </tr>
-</table>
+</table>  
