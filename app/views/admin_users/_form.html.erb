@@ -1,0 +1,19 @@
+<%= error_messages_for(@user) %>
+<table summary = "User form fields" >
+    <tr>
+        <th><%= f.label(:first_name)%></th>
+        <td><%= f.text_field(:first_name, :placeholder => "Enter first name...") %></td>
+    </tr>
+    <tr>
+         <th><%= f.label(:last_name)%></th>
+        <td><%= f.text_field(:last_name, :placeholder => "Enter last name...")%></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:email) %></th>
+        <td><%= f.text_field(:email, :placeholder => "Enter email...")%></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:username) %></th>
+        <td><%= f.text_field(:username, :placeholder => "Enter username...") %></td>
+    </tr>
+</table>
