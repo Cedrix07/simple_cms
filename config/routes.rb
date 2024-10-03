@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'access/index'
+
+  get 'access/login'
+
   # get 'subjects/index'
   # get 'subjects/show'
   # get 'subjects/new'

@@ -89,6 +89,9 @@ Check the status of all migration files:
 Migrate Specific migration files
     rake db:migrate VERSION=20240926055536 
 
+Migration to add a column to existing migration:
+    rails g migration AddPasswordDigestToAdminUsers
+
 Migration Advice
     comment out executed code lines to get back on track
         Write SQL commands as last resort
@@ -482,7 +485,7 @@ CUSTOM VALIDATION
     def custom_method
     end
     exampe:
-     
+
     validate :user_name_is_allowed
 
     def user_name_is_allowed
@@ -490,3 +493,12 @@ CUSTOM VALIDATION
         errors.add(:username, "has been restricted from use")
         end
     end
+
+USER AUTHENTICATION 
+
+    Hashing password in rails      
+        has_secure_password > use it in the model 
+    note: 
+        Application must have bcrypt-ruby gem installed 
+        table must have a string colum for "password_digest" 
+        
