@@ -4,10 +4,12 @@ class Section < ApplicationRecord
   has_many :editors, :through => :section_edits, :class_name => "AdminUser"
   
   #validations
-  validates_presence_of :page_id
-  validates_presence_of :name
+  CONTENT_TYPES = ['text', 'HTML']
+  # validates_presence_of :page_id
+  validates_presence_of :name, :maximum => 255
+  validates_inclusion_of :content_type, :in => CONTENT_TYPES, :message => "must be one of: #{CONTENT_TYPES.join(', ')}"
   validates_presence_of :content
-  validates_presence_of :content_type
+  
 
    # Named scopes
    scope :visible, lambda { where( :visible => true ) } 

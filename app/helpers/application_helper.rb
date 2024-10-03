@@ -1,4 +1,5 @@
 module ApplicationHelper
+  
   def status_tag(boolean, options = {})
     options[:true_text] ||= ''
     options[:false_text] ||= ''

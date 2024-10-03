@@ -6,9 +6,8 @@
 <%= form_with model: @section, local: true do |f| %>
   <%= render partial: "form", locals: {f: f} %>
   <div class="form-buttons">
-    <%= f.submit "Create Section" %>
+    <%= f.submit "Create Section", :class => "submit-btn" %>
   </div>
 <% end %>
-
 
 </div>

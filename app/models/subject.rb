@@ -1,13 +1,13 @@
 class Subject < ApplicationRecord
 
-  
-
   #relation
   has_many:pages
 
   #validations 
-  validates_presence_of :name
+  validates_presence_of :name, :message => "is required"
+  validates_length_of :name, :maximum => 255 
 
+  
   #Named scopes
   scope :visible, lambda { where( :visible => true ) } 
   scope :invisible, lambda{ where( :visible => false ) }

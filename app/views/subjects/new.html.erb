@@ -6,7 +6,7 @@
     <%= form_for(:subject, :url => {:action => 'create'}) do |f| %>
         <%= render(:partial => "form", :locals => {:f => f }) %>
         <div class="form-buttons">
-            <%= submit_tag("Create Subject") %>
+            <%= submit_tag("Create Subject", :class => 'submit-btn') %>
         </div>
     <% end %>
 </div>

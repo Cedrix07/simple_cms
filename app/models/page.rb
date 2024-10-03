@@ -3,9 +3,17 @@ class Page < ApplicationRecord
   # relation 
   belongs_to :subject
   has_and_belongs_to_many :editors, :class_name => "AdminUser"
-  #validations
-  validates_presence_of :name
-  validates_presence_of :permalink
+  # validations
+  # validates_presence_of :name
+  # validates_length_of :name, :maximum => 255
+  # validates_presence_of :permalink
+  # validates_length_of :permalink, :within => 3..255
+  # use presence_of with length_of to disallow spaces
+  # validates_uniqueness_of :permalink
+  #for unique values by use ":scope => :subject_id"
+
+  validates :name, :presence => true, :length => {maximum: 255}
+  validates :permalink, :length => {within:3..255}, :uniqueness => true 
 
   #Named scopes
   scope :visible, lambda { where( :visible => true ) } 

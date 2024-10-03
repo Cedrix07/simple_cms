@@ -470,3 +470,23 @@ PREVENT CSRF
     GET request should be read only  
     POST Request should be only respond to POSTS request
     
+
+RAILS C for testing validation of fields
+    s = Subject.new
+    s.errors? # see all error messages
+    s.valid? # return true or false if the creation is valid
+    s.errors.full_message # to see the full error messages
+
+CUSTOM VALIDATION 
+    validate: custom_method
+    def custom_method
+    end
+    exampe:
+     
+    validate :user_name_is_allowed
+
+    def user_name_is_allowed
+        if FORBIDDEN_USERNAMES.include?(username)
+        errors.add(:username, "has been restricted from use")
+        end
+    end
