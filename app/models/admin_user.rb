@@ -1,7 +1,7 @@
 class AdminUser < ApplicationRecord
   
   # hashing password
-    has_secure_password
+  has_secure_password
     
   # relation  
   has_and_belongs_to_many :pages

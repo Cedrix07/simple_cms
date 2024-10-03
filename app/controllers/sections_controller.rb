@@ -1,6 +1,8 @@
 class SectionsController < ApplicationController
   layout "admin"
 
+  # protect pages for unauthenticate users 
+  before_action :confirmed_logged_in
   def index
     @sections = Section.sorted
   end

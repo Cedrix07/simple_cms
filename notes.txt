@@ -15,6 +15,8 @@ Rendering Template in controller
         render('index')
     end
 
+Application controller
+    all code inside this will be accessable to any controller 
 
 Redirecting Action 
     def redirect_page
@@ -501,4 +503,38 @@ USER AUTHENTICATION
     note: 
         Application must have bcrypt-ruby gem installed 
         table must have a string colum for "password_digest" 
-        
+
+COOKIES IN RAILS 
+    cookies[:username] = "jsmith"
+
+    cookies with expiration: 
+        cookies[:username] = {
+            :value => "jsmith", :expires => 1.week.from_now
+        }
+
+    <%= cookies[:username] %> 
+
+SESSIONS IN RAILS
+    session[:username] "jsmith"
+    <%= session[:username] %> 
+
+SESSION STORAGE 
+    Database storage 
+        > moved to rubygem 
+        > slow, requires database calls, database bloat 
+    
+    Cookie storage 
+        > default in rails 3.4 "super cookie"
+        > fast, 4k max size, no bloat, no hijacking 
+        > Digest value stored to prevent tampering 
+    
+    configuration of session is found in config > secret.yml for rails 5.1.7 
+
+
+before_action
+    specify which methods active the before_action
+    :only => [:method1, :method2]
+    :except => [:method2?]
+    should call private or protected methods 
+        they can't be called as action 
+    

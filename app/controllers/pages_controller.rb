@@ -1,11 +1,13 @@
 class PagesController < ApplicationController
 
   layout "admin"
+  # protect pages for unauthenticate users 
+  before_action :confirmed_logged_in
 
   def index
     @pages = Page.sorted
   end
-
+ 
   def show
     @page = Page.find(params[:id])
   end

@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-
-
-  get 'access/index'
-
-  get 'access/login'
-
   # get 'subjects/index'
   # get 'subjects/show'
   # get 'subjects/new'
@@ -23,6 +17,9 @@ Rails.application.routes.draw do
   #   end 
   # end
 
+  root "demo#index"
+  get "admin", :to => "access#index"
+
   resources :sections do
     member do
       get :delete
@@ -36,7 +33,7 @@ Rails.application.routes.draw do
   # get 'demo/index'
   # get 'demo/hello'
   # get 'demo/redirect_page'
-  root "demo#index"
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
