@@ -2,9 +2,12 @@ class Page < ApplicationRecord
 
   # relation 
   
+  # pages belongs to subject
   belongs_to :subject
+ 
   has_many :sections
   has_and_belongs_to_many :editors, :class_name => "AdminUser"
+  acts_as_list :scope => :subject 
   # validations
   # validates_presence_of :name
   # validates_length_of :name, :maximum => 255

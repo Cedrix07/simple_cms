@@ -12,7 +12,7 @@
             <th>Page</th>
             <th>Permalink</th>
             <th>Visible</th>
-            <%# <th>Sections</th> %>
+            <th>Sections</th>
             <th>Actions</th>
         </tr>
 
@@ -24,6 +24,7 @@
             <td class="center">
                 <%=  status_tag(page.visible) %>
             </td>
+            <td><%= page.sections.size %></td>
             <td class="actions">
                  <%= link_to("View sections", {:controller => 'sections', :page_id => page.id}, :class => 'action show') %>
                 <%= link_to("Show", {:action => 'show', :id => page.id, :subject_id => @subject.id}, :class => 'action show') %>

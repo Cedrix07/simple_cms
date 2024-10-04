@@ -17,6 +17,10 @@ gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 # use for erb formatter
 gem 'htmlbeautifier'
 
+# acts as list
+gem 'acts_as_list', '~> 1.0'
+
+
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

@@ -3,7 +3,7 @@ class Section < ApplicationRecord
   belongs_to :page
   has_many :section_edits
   has_many :editors, :through => :section_edits, :class_name => "AdminUser"
-  
+  acts_as_list :scope => :page
   #validations
   CONTENT_TYPES = ['text', 'HTML']
   # validates_presence_of :page_id

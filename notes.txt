@@ -532,6 +532,7 @@ SESSION STORAGE
 
 
 before_action
+    use when you want to run a specific method before executing certain controller action 
     specify which methods active the before_action
     :only => [:method1, :method2]
     :except => [:method2?]

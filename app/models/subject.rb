@@ -1,8 +1,9 @@
 class Subject < ApplicationRecord
 
-  #relation
+  #relation subject has many pages 
   has_many:pages
-
+  acts_as_list
+  
   #validations 
   validates_presence_of :name, message: "is required"
   validates_length_of :name, maximum: 255 
