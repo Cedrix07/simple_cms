@@ -1,12 +1,12 @@
-<%= link_to("<< Back to list", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< Back to list", {:action => 'index',:subject_id => @subject.id}, :class => 'back-link') %>
 
 <div class="pages edit">
     <h2>Delete Page</h2>
 
-    <%= form_for(:subject, :url => {:action => 'destroy', :id => @page.id}) do |f| %>
+    <%= form_for(:subject, :url => {:action => 'destroy', :id => @page.id, :subject_id => @subject.id}) do |f| %>
         <p class="delete-p">Are you sure you want to delete <strong><%= @page.name %></strong> ? </p>
         <div class="form-buttons">
-            <%= submit_tag("Delete Page") %>
+            <%= submit_tag("Delete Page", :class => 'btn-delete') %>
         </div>
     <% end %>
 </div>
