@@ -1,9 +1,9 @@
-<%= link_to("<< Back to list", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< Back to list", {:action => 'index', :page_id => @page.id}, :class => 'back-link') %>
 
 <div class="Sections delete">
     <h2>Delete Subject</h2>
 
-    <%= form_with model: @section, url: section_path(@section), method: :delete, local: true do |f| %>
+    <%= form_with model: @section, url: { action: 'destroy', page_id: @page.id }, method: :delete, local: true do |f| %>
     <p class="delete-p">Are you sure you want to delete <strong><%= @section.name %></strong>?</p>
 
     <div class="form-buttons">

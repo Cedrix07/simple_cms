@@ -1,12 +1,12 @@
-<%= link_to("<< Back to list", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< Back to list", { action: 'index', page_id: @page.id }, class: 'back-link') %>
 
 <div class="sections new">
     <h2>Create Section</h2>
 
-<%= form_with model: @section, local: true do |f| %>
-  <%= render partial: "form", locals: {f: f} %>
+<%= form_with model: @section, url: { action: 'create', page_id: @page.id }, local: true do |f| %>
+  <%= render partial: "form", locals: { f: f } %>
   <div class="form-buttons">
-    <%= f.submit "Create Section", :class => "submit-btn" %>
+    <%= f.submit "Create Section", class: "submit-btn" %>
   </div>
 <% end %>
 
