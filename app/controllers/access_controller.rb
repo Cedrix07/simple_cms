@@ -2,11 +2,12 @@ class AccessController < ApplicationController
   layout 'admin'
 
   before_action :confirmed_logged_in, :except => [:login, :attempt_login, :logout]  
-
   before_action :prevent_login_access_if_authenticated, :only => [:login, :attempt_login]
+  before_action :prevent_logout_access_if_unauthenticated, :only => [:logout]
+
 
   def index
-    # display text & links
+
   end
 
   def login
@@ -53,4 +54,15 @@ class AccessController < ApplicationController
         redirect_to(:action => "index")
       end
     end
+
+    def prevent_logout_access_if_unauthenticated 
+      if !session[:user_id]
+        redirect_to(:action => "index")
+      end
+    end
+
+
+ 
+
+
 end

@@ -1,6 +1,8 @@
 /* Admin stylesheet       */
 /* load after public.css */
 
+
+
 /* Structure */
 #content { padding-left: 100px; padding-right: 100px; }
 #content h2 { width: 100%; text-align: center; }
@@ -68,6 +70,7 @@ span.status.false { background: red; color: red; }
 .delete-p{
   text-align: center;
 }
-
+.btn-delete{background-color: #AA0000; color: #FFFFFF; padding: 0.4em 0.5em; border: 0; border-radius: 2px; cursor: pointer;}
+.btn-delete:hover{background-color: #970202;}
 .submit-btn{cursor: pointer; padding: 0.4em 0.5em; border: 0; border-radius: 2px; background-color: #94B26F; color: white;}
 .submit-btn:hover{background-color: #718955;}

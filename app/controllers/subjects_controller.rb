@@ -4,6 +4,7 @@ class SubjectsController < ApplicationController
   
   # protect pages for unauthenticate users 
   before_action :confirmed_logged_in  
+  
   def index
     @subjects = Subject.sorted
     # render(:template => 'subjects/index')

@@ -3,12 +3,22 @@
 <head>
     <%= csrf_meta_tag %>
     
-    <title>Simple CMS Admin </title>
+    <title>Simple CMS Admin | <%= @page_title %></title>
     <%= stylesheet_link_tag('application', :media => 'all') %>
 </head>
 <body>
     <div id="header">
         <h1>Simple CMS Admin</h1>
+       <% if session[:user_id].present? %>
+            <ul class="nav">
+                <li class ="nav-items" ><%= link_to("Home", {:controller => 'access' }, class: "nav-links") %></li>
+                <li class ="nav-items" ><%= link_to("Subjects", {:controller => 'subjects' }, class: "nav-links") %></li>
+                <li class ="nav-items" ><%= link_to("Pages", {:controller => 'pages'} , :class => "nav-links") %></li>
+                <li class ="nav-items" ><%= link_to("Sections", {:controller => 'sections'} , :class => "nav-links") %></li>
+                <li class ="nav-items" ><%= link_to("Manage Users", {:controller => 'admin_users'} , :class => "nav-links") %></li>
+                <li class ="nav-items" ><%= link_to("Logout", {:controller => 'access', :action => 'logout'}, :class => "nav-links") %></li>
+            </ul>
+        <% end %>
     </div>
     <div id="main">
         <% if !flash[:notice].blank? %>

@@ -27,7 +27,7 @@ class AdminUser < ApplicationRecord
   end
 
   #named scope
-  scope :sorted, lambda{order('admin_users.last_name, admin_users.first_name ASC')}
+  scope :sorted, lambda{order('last_name, first_name ASC')}
 
   def name 
     "#{first_name} #{last_name}"

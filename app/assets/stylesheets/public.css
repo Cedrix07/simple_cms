@@ -26,10 +26,10 @@ a:hover {}
 
 /* Structure */
 #header { display: flex; justify-content: space-between; align-items: center; height: 4em; padding: 0.3em 2em; text-align: center;
-  background: #993120; color: #FFFFFF; }
+  background: #993120; color: #FFFFFF !important; }
 #header h1 { margin: 0; padding: 0; }
 #header .nav{list-style:none; display: inline-flex; gap: 1rem;}
-#header .nav .nav-items .nav-links{color: white; text-decoration: none;}
+#header .nav .nav-items .nav-links{color: white !important; text-decoration: none;}
 #main { min-height: 500px; background: #F2DC87; }
 #navigation { float: left; width: 180px; min-height: 480px; padding: 10px; 
   background: #94B26F; color: #4C2516; }
@@ -44,6 +44,8 @@ a:hover {}
 #navigation ul ul { margin: 0.5em 0 0 1em; font-size: 0.9em; }
 #navigation a { text-decoration: none; padding: 1px 3px;}
 #navigation a:hover { background: #F2DC87; }
+
+
 
 /* Content */
 #content h2 { color: #4C2516; }

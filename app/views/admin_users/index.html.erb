@@ -1,10 +1,14 @@
 
+<% @page_title = "Manage Admin Users" %>
+
 <div class="users index">
     <h2>Users</h2>
+    
+    <%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add new admin user", {:action => 'new'}, :class => 'action new') %>
 
     <table class="listing" summary="Subject list">
         <tr class="header">
-            <th>id</th>
+             
             <th>first name</th>
             <th>Last name</th>
             <th>Email</th>  
@@ -12,22 +16,22 @@
             <th>Actions</th>
         </tr>
 
-        <% @users.each do |user| %>
-            <tr>
-                <td><%= user.id %></td>
-                <td><%= user.first_name %></td>
-                <td><%= user.last_name %></td>
-                <td><%= user.email %></td>
-                <td><%= user.username %></td>
+        <% @admin_users.each do |admin_user| %>
+            <tr class ="<%= cycle('odd', 'even') %>">
+               
+                <td><%= admin_user.first_name %></td>
+                <td><%= admin_user.last_name %></td>
+                <td><%= mail_to(admin_user.email) %></td>
+                <td><%= admin_user.username %></td>
                 <td class="actions">
-                    <%= link_to("Edit", {:action => 'edit', :id => user.id}, :class => 'action edit') %>
-                    <%= link_to("Delete", {:action => 'delete', :id => user.id}, :class => 'action delete') %>
+                    <%= link_to("Edit", {:action => 'edit', :id => admin_user.id}, :class => 'action edit') %>
+                    <%= link_to("Delete", {:action => 'delete', :id => admin_user.id}, :class => 'action delete') %>
                 </td>
             </tr>
         <% end %>
 
     </table>
     <div>   
-        <p>Total User Found: <strong><%= pluralize(@users.size, 'user')%> </strong></p>
+        <p>Total Admin user found: <strong><%= pluralize(@admin_users.size, 'Admin user')%> </strong></p>
     </div>
 </div>
