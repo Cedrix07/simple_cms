@@ -7,7 +7,8 @@
 #content { padding-left: 100px; padding-right: 100px; }
 #content h2 { width: 100%; text-align: center; }
 
-.login form { margin: 100px 250px; }
+.login{display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 100px;}
+.login form {}
 .menu .identity { text-align: center; }
 .menu ul { margin: 3em 250px; list-style: none; }
 .menu ul li { margin-bottom: 1em; }

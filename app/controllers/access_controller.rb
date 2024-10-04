@@ -7,7 +7,7 @@ class AccessController < ApplicationController
 
 
   def index
-
+    
   end
 
   def login
@@ -57,12 +57,9 @@ class AccessController < ApplicationController
 
     def prevent_logout_access_if_unauthenticated 
       if !session[:user_id]
+        flash[:notice] = "You are not logged in"
         redirect_to(:action => "index")
       end
     end
-
-
- 
-
 
 end
