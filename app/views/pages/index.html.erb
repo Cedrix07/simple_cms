@@ -1,6 +1,6 @@
 <% @page_title = "View Page List" %>
 
-<%= link_to("<< Back to subjects", {:controller => 'subjects', :action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< Back to subjects", subjects_path, :class => 'back-link') %>
 
 <div class="pages index">
     <h2>Pages </h2>
@@ -38,3 +38,4 @@
         <p>Total Page Found: <strong><%= pluralize(@pages.size, 'Pages' )%> </strong></p>
     </div>
 </div>
+

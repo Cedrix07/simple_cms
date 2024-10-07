@@ -605,3 +605,20 @@ Callbacks
         sending notifications after creating a new record
         updating associated records after saving a record
         Logging events after destroying a record 
+
+DEBUGGING TECHNIQUES 
+    1. Break problem into smaller pieces
+    2. use rails console 
+    3. inspect and debug helper method 
+        <%= debug(object) %> 
+        object.inspect
+
+HANDLE ERRORS IN PRODUCTION 
+    1. config/environment/production.rb
+        config.consider_all_request_local = false 
+
+
+  
+
+
+https://stackoverflow.com/questions/38621928/rails-refreshing-page-after-calling-render-on-failed-validation

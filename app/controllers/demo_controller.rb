@@ -24,5 +24,11 @@ class DemoController < ApplicationController
   def escape_output
     
   end
-  
+  def logging
+    logger.debug("Hello debug")
+    logger.info("Hello info ")
+    logger.warn("Hello warn ")
+    logger.fatal("Hello fatal ")
+    render(:text => "Logged")
+  end
 end

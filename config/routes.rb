@@ -25,11 +25,24 @@ Rails.application.routes.draw do
   get "show/:permalink", to: "public#show"
   get "admin", :to => "access#index"
 
+  resources :subjects do
+    member do
+      get :delete
+    end
+  end
+
+  resources :pages do
+    member do
+      get :delete
+    end
+  end
+
   resources :sections do
     member do
       get :delete
     end
   end
+
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
