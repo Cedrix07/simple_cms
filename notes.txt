@@ -563,6 +563,7 @@ Example:
 Logout user example: 
 1. set the user id & username session to  nil 
 2. redirect to desired page 
+Example: 
     def logout
         # destroy session to logged out 
         session[:user_id] = nil
@@ -589,5 +590,18 @@ Nesting controllers if they have relationship setup
 
     child's view pages 
         All links and form actions need to preserve :parent_id
-        example:   
-            <%= form_for(:page, :url => {:action => 'create', :parent_id => @parent.id}) do |f| %>
+        Example:   
+        <%= form_for(:page, :url => {:action => 'create', :parent_id => @parent.id}) do |f| %>
+
+Callbacks 
+    Allow you to execute code before or after certain events like create, update, or delete a record 
+
+    Types of callbacks: 
+        1. Model callbacks: before_save, after_create, before_destroy, etc. 
+        2. Controller callbacks: before_action & after_action 
+    
+    when to use callbacks:
+        validating data before saving a record
+        sending notifications after creating a new record
+        updating associated records after saving a record
+        Logging events after destroying a record 

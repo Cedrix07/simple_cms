@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'public/index'
+
+  get 'public/show'
+
   # get 'subjects/index'
   # get 'subjects/show'
   # get 'subjects/new'
@@ -17,7 +21,8 @@ Rails.application.routes.draw do
   #   end 
   # end
 
-  root "demo#index"
+  root "public#index"
+  get "show/:permalink", to: "public#show"
   get "admin", :to => "access#index"
 
   resources :sections do
