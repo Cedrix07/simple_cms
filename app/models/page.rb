@@ -42,7 +42,6 @@ class Page < ApplicationRecord
       subject.touch
      end
 
-
   # Destroy all the sections associated with this page.
      def delete_related_sections
         self.sections.each do |section|
