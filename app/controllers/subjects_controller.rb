@@ -42,7 +42,7 @@ class SubjectsController < ApplicationController
       # Find an existing object using form params
       @subject = Subject.find(params[:id])
 
-      #updaye the object
+      #update the object
      if @subject.update_attributes(subject_params)
        flash[:notice] = "Subject updated successfully!"
       redirect_to(:action => 'show', :id => @subject.id)

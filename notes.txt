@@ -530,6 +530,46 @@ SESSION STORAGE
     
     configuration of session is found in config > secret.yml for rails 5.1.7 
 
+Authenticate / Login user example: 
+1. validate user inputs (username/email and password) 
+2. check in database
+3. if found, authenticate user 
+4. if user authenticated, create session 
+5. redirect 
+
+Example: 
+    def attempt_login
+        # if username and password has value 
+        if params[:username].present? && params[:password].present?
+        #check in database
+        found_user = AdminUser.where(:username => params[:username]).first
+        # authenticate the found user 
+        if found_user
+            authorized_user = found_user.authenticate(params[:password])
+        end
+        end
+        if authorized_user
+        # create a session by storing the user ID in the session hash 
+        session[:user_id] = authorized_user.id
+        session[:username] = authorized_user.username
+        flash[:notice] = "You are now logged in"
+        redirect_to(:action => 'index')
+        else
+        flash[:notice] = "Invalid username/password combination"
+        redirect_to(:action => 'login')
+        end
+    end
+
+Logout user example: 
+1. set the user id & username session to  nil 
+2. redirect to desired page 
+    def logout
+        # destroy session to logged out 
+        session[:user_id] = nil
+        session[:username] = nil
+        flash[:notice] = "Logged out"
+        redirect_to(:action => "login")
+    end
 
 before_action
     use when you want to run a specific method before executing certain controller action 
@@ -538,4 +578,16 @@ before_action
     :except => [:method2?]
     should call private or protected methods 
         they can't be called as action 
-    
+
+Nesting controllers if they have relationship setup 
+    pass the id of the parent controller to child controller 
+
+    child's controller: 
+        use 'before_action' to find the parent's controller id 
+        new action can use the parent id to pre-select the parent controller record
+        every redirects need to preserve params[:parent_id]
+
+    child's view pages 
+        All links and form actions need to preserve :parent_id
+        example:   
+            <%= form_for(:page, :url => {:action => 'create', :parent_id => @parent.id}) do |f| %>

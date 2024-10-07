@@ -65,6 +65,7 @@ class PagesController < ApplicationController
       params.require(:page).permit(:subject_id, :name,:permalink, :position, :visible)
     end
 
+    # find the subject associated with the page
     def find_subject 
       if params[:subject_id] 
         @subject = Subject.find(params[:subject_id])

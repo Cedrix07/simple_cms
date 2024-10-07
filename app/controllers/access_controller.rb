@@ -35,7 +35,6 @@ class AccessController < ApplicationController
       flash[:notice] = "Invalid username/password combination"
       redirect_to(:action => 'login')
     end
-
   end
 
   def logout

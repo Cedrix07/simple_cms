@@ -4,6 +4,8 @@ class Section < ApplicationRecord
   has_many :section_edits
   has_many :editors, :through => :section_edits, :class_name => "AdminUser"
   acts_as_list :scope => :page
+
+  after_save :touch_page
   #validations
   CONTENT_TYPES = ['text', 'HTML']
   # validates_presence_of :page_id
@@ -21,5 +23,9 @@ class Section < ApplicationRecord
      where(["name LIKE ?", "%#{query}%"])
    }
 
+  private
+   def touch_page
+    page.touch
+   end
 
 end
